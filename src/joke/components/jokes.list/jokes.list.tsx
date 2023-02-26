@@ -6,7 +6,6 @@ export function JokesList() {
   const { jokes } = useJokes(new JokeApiRepo());
   return (
     <>
-      <h1>Jjejejjejejj</h1>
       <section>
         <ul>
           {jokes.map((item) => (
