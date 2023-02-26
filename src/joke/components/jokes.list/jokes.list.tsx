@@ -10,7 +10,9 @@ export function JokesList() {
       <section>
         <ul>
           {jokes.map((item) => (
-            <li key={item.id}>{item.joke}</li>
+            <li key={item.id}>
+              {item.id} - {item.joke}
+            </li>
           ))}
         </ul>
       </section>
