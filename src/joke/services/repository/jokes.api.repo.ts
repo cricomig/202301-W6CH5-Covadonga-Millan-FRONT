@@ -11,7 +11,8 @@ export interface JokeApiRepoStructure {
 export class JokeApiRepo {
   url: string;
   constructor() {
-    this.url = "http://localhost:4200/jokes";
+    this.url =
+      "https://two02301-w6ch5-covadonga-millan-back.onrender.com/jokes";
   }
 
   async loadJokes(): Promise<JokeStructure[]> {
