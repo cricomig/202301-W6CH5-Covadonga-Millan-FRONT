@@ -11,7 +11,7 @@ export interface JokeApiRepoStructure {
 export class JokeApiRepo {
   url: string;
   constructor() {
-    this.url = "http://localhost:4200";
+    this.url = "http://localhost:4200/jokes";
   }
 
   async loadJokes(): Promise<JokeStructure[]> {
@@ -22,13 +22,12 @@ export class JokeApiRepo {
     return data;
   }
 
-  async getJoke(id: JokeStructure["id"]): Promise<JokeStructure> {
+  async loadByIdJoke(id: JokeStructure["id"]): Promise<JokeStructure> {
     const url = this.url + "/" + id;
     const resp = await fetch(url);
     if (!resp.ok)
       throw new Error("Error Http: " + resp.status + ". " + resp.statusText);
     const data = (await resp.json()) as JokeStructure;
-
     return data;
   }
 

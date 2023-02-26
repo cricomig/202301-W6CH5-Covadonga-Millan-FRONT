@@ -21,6 +21,15 @@ export function useJokes(repo: JokeApiRepo) {
     loadJokes();
   }, [dispatch, repo]);
 
+  const loadByIdJoke = async (id: number) => {
+    try {
+      const data = await repo.loadByIdJoke(id);
+      dispatch(ac.loadByIdCreator(data));
+    } catch (error) {
+      console.error((error as Error).message);
+    }
+  };
+
   const addJoke = async (task: ProtoJokeStructure) => {
     try {
       const finalJoke = await repo.createJoke(task);
@@ -50,6 +59,7 @@ export function useJokes(repo: JokeApiRepo) {
 
   return {
     jokes,
+    loadByIdJoke,
     addJoke,
     updateJoke,
     deleteJoke,

@@ -34,14 +34,14 @@ describe("Given the Jokes repo", () => {
         }),
       });
 
-      const getJoke = await repo.getJoke(3);
+      const getJoke = await repo.loadByIdJoke(3);
       expect(getJoke).toEqual({ id: 3, joke: "patata" });
     });
   });
   describe("When getJoke fails", () => {
     test("Then it should throw an error", async () => {
       global.fetch = jest.fn().mockResolvedValue("Error");
-      const getJoke = repo.getJoke(420);
+      const getJoke = repo.loadByIdJoke(420);
       await expect(getJoke).rejects.toThrow();
     });
   });
