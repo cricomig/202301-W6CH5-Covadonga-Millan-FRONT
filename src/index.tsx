@@ -2,6 +2,8 @@ import React from "react";
 import { Provider } from "react-redux";
 import App from "./core/app/app";
 import { store } from "./core/store/store";
+import { createRoot } from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -13,6 +15,5 @@ root.render(
     </Provider>
   </React.StrictMode>
 );
-function createRoot(container: HTMLElement) {
-  throw new Error("Function not implemented.");
-}
+
+reportWebVitals();
